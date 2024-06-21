@@ -11,7 +11,7 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
       with:
-        ref: c4c66386f47053694afcbab6e1eba4bfb3fcd729
+        ref: 2ff845c2e033bd0ff64b5b6aa6063a1f8f65aa32
 
     - name: Build HandBrake Linux
       run: |
