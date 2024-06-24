@@ -12,7 +12,8 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: 2ff845c2e033bd0ff64b5b6aa6063a1f8f65aa32
-
+    - name: Install dependencies
+      run: brew install llvm
     - name: Build HandBrake Linux
       run: |
           make SDKROOT=macosx.internal
