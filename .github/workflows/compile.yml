@@ -15,5 +15,4 @@ jobs:
 
     - name: Build HandBrake Linux
       run: |
-          make
           make SDKROOT=macosx.internal
