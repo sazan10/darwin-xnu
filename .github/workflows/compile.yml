@@ -16,4 +16,5 @@ jobs:
       run: brew install llvm
     - name: Build HandBrake Linux
       run: |
-          make SDKROOT=macosx.internal
+        export PATH="/usr/local/opt/llvm/bin:$PATH"         
+        make SDKROOT=macosx.internal
