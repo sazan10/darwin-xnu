@@ -17,7 +17,26 @@ jobs:
         brew install llvm
         echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.zshrc
         source ~/.zshrc
-    - name: Build HandBrake Linux
+
+    - name: Set up Ruby environment
       run: |
+        brew install rbenv ruby-build
+        rbenv init
+        rbenv install 3.0.2
+        rbenv global 3.0.2
+
+    - name: Install xcode-install
+      run: |
+        gem install xcode-install
+        xcversion update
+
+    - name: Install and select Xcode 14.2
+      run: |
+        xcversion install 14.2
+        sudo xcode-select -s /Applications/Xcode_14.2.app/Contents/Developer
+
+    - name: Run build with specific SDK
+      run: |
+        export SDKROOT=$(xcrun --sdk macosx13.1 --show-sdk-path)
         make
         make SDKROOT=macosx.internal
