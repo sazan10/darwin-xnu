@@ -1,5 +1,5 @@
 
-name: Linux Build
+name: Macos Build
 
 on: push
 
@@ -16,6 +16,5 @@ jobs:
       run: brew install llvm
     - name: Build HandBrake Linux
       run: |
-        pip install scan-build
-        export PATH="/usr/local/opt/llvm/bin:$PATH"         
+        make
         make SDKROOT=macosx.internal
