@@ -13,7 +13,10 @@ jobs:
       with:
         ref: 2ff845c2e033bd0ff64b5b6aa6063a1f8f65aa32
     - name: Install dependencies
-      run: brew install llvm
+      run: |
+        brew install llvm
+        echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.zshrc
+        source ~/.zshrc
     - name: Build HandBrake Linux
       run: |
         make
